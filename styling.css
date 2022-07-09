@@ -1,0 +1,109 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Lora', serif; 
+    overflow-x: hidden;
+    background: rgb(255, 247, 204);
+}
+
+.title{
+    text-align: center;
+    padding: 50px 0 ;
+    background-color: rgb(55, 55, 55);
+    color: rgb(255, 255, 255);
+}
+.title h1{
+    font-weight: 200;
+    font-family: 'Lora', serif;
+    font-size: 50px;
+    background-color: rgb(55, 55, 55);
+}
+.Introduction h2{
+    padding: 20px 0 20px 0;
+    font-weight: 160;
+    font-size: 43px;
+}
+.Introduction{
+    margin: 17px
+}
+.intro-body{
+    margin: 0 20px;
+    font-weight: 100;
+    font-size: 20px;
+}
+
+.Mathematics{
+    margin: 17px
+}
+
+.Mathematics h2{
+    padding: 20px 0 20px 0;
+    font-weight: 160;
+    font-size: 43px;
+}
+.img-theory{
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+.img1{
+    margin-right: 20px;
+}
+#tab_1{
+    position: relative;
+    top: 17%;
+}
+.img2{
+    margin-left: 40px;
+}
+.algorithm{
+    margin: 17px;
+}
+
+.algorithm h2{
+    padding: 20px 0 20px 0;
+    font-weight: 160;
+    font-size: 43px;
+}
+
+.algo_img_1{
+    display: grid;
+    justify-content: center;
+    margin: 25px 0;
+}
+.algo_img_2{
+    display: grid;
+    justify-content: center;
+    margin: 15px 0 0 0;
+}
+.algo_img_3{
+    display: grid;
+    justify-content: center;
+    margin: 15px 0 0 0;
+}
+
+.formula{
+    display: block;
+    padding: 24px 0;
+    text-align: center;
+    border-width: 2px;
+    border-color: black;
+    border-style: solid;
+    margin: 12px 33%;
+}
+
+.intro-body b{
+    font-size: 23px;
+    font-weight: bold;
+}
+
+.extra{
+    margin: 0 45px;
+}
+
+.video{
+    display: flex;
+    width: 100%;
+    padding: 30px 0;
+    justify-content: center;
+}

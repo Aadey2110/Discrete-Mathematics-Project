@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Compression - Huffman Code</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora&family=Raleway:ital,wght@1,200&family=Zilla+Slab:wght@300&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="/styling.css">
+</head>
+<body>
+    <header>
+        <div class="title">
+            <h1>Data Compression using Huffman Code</h1>
+        </div>
+    </header>
+    <main>
+        <div class="Introduction"><h2>Introduction</h2>
+        <p class="intro-body">
+            Discrete mathematics is the part of mathematics devoted to the study of discrete objects. It involves finite, rather than continuous mathematical structure. It involves integers, graph theory, algorithm and reasoning, matrix algebra, automata theory, cryptography, number theory, recursion and statements of logic. It has been describe as dealing with ‘countable sets’. It excludes the continuous topics of mathematics or real numbers like: Euclidean mathematics and calculus.
+
+            Discrete mathematics has been describe as the mathematics of decision making for finite setting. It can be used to represent and solve problems with graphs. Modern computer science depends on discrete mathematics, especially graph theory and combinatorics.
+
+            So, the project which we have done gives us the opportunity to explore our little bit knowledge of discrete mathematics. In today’s time people are heavily engrossed in a model technological world the amount of data that is being created and transferred is pretty huge. Images are important documents nowadays. It include various information. Compression of images is used in some applications such as profiling data and transmission system.
+            So, our project is based on image compression without losing any data. This project gives the application of ‘Huffman coding and decoding algorithm’ which allows us to assign lesser bits to more frequently occurring data bits and vice versa.
+        </p>
+    </div>
+        <div class="Mathematics"><h2>Mathematics</h2>
+        <p class="intro-body">
+            The variable length codes one type of code in which the source symbols which have fixed length code are encoded into output symbols with variable length code. This variable length is associated  with the properties of the source symbols input to the encoder , often their frequency of occurrence, which are assigned to any symbols are prefix codes which are different from each other that means unique code is assigned to each character.
+            According to this method, each symbol is assigned by different variable length code where shorter length codes  are assigned to more frequently appearing and longer codes are assigned to least frequently appearing symbols. Codeword associated to each symbol is evident from below binary tree as below example: <br>
+            </p>
+            <div class="img-theory">
+                <div class="img1">
+                    <img src="/Table_1.jpg" alt="Table_1" height="240px" id="tab_1">
+                </div>
+                <div class="img2">
+                    <img src="/Tree_1.PNG" alt="Tree_1" height="360px" id="tab_2">
+                </div>
+            </div>
+            </div>
+        </p>
+        <div class="intro-body extra">
+            We generate this tree by method:
+            In tree we allocate nodes to all the symbols. Then  we choose two  symbols which have  least probabilities. Then add them and make it as parent of these two nodes and set  the symbol which has least probability among these chosen symbols as right child  and another one as left child in tree. Then we choose another symbol from remaining ones whose probability is smaller than parent and add it with parent and repeat the same steps as above. If there is possibility to have more than one symbols which have least probability  than parent then add these two symbol’s  probabilities and add this resultant probability with parent of the previous chosen symbols. In this way we generate the tree. Now , we use variable length code to trace any symbol of the tree as following. In this tree we consider left child of root as 1 when traverse to the left side and right child of root as 0 when traverse to the right side of tree. For remaining nodes, code word of left child can be obtained by  appending 1 to the code word of its parent node and code word of right child can be obtained by  appending 0 to the code word of its parent node.<br>
+        </div>
+        </div>
+        <div class="algorithm">
+            <h2>Algorithm</h2>
+            <p>
+                <div class="intro-body">
+                Now we take an example of a 7x7 sample image having 49 x 4 bits to understand the working of the algorithm. It consists of 5 steps starting from calculating the probability of an element to occur to generating a key table so as to be able to decode the data. <br>
+                <div class="algo_img_1">
+                <img src="/Table_2.jpg" alt="Data_Table" height="180px">
+                </div>
+                <br><b>Step 1</b><br><br> For calculating probability of each symbol we have to first store each symbol in a list and then compute the frequency. For storing each symbol in a list, we have to push element whenever we encounter a symbol while iterating whole matrix given. Subsequently for frequency, we can initially set the frequency of that symbol as zero and then increase the frequency of that symbol by one whenever we encounter that symbol. After calculating the frequency of each symbol, we can 
+                calculate the probability by the following formula: <br>
+                <div class="formula">
+                <i>P<sub>symbol</sub> = Freq<sub>symbol</sub> / Total<sub>symbol</sub></i>
+                <br>
+                </div>
+                <i>P<sub>symbol</sub></i> – Probability of that symbol <br>
+                <i>Freq<sub>symbol</sub></i>  - Frequency of that symbol <br>
+                <i>Total<sub>symbol</sub></i> – Total number of symbols <br>
+                <br><b>Step 2</b><br><br> Now after calculating the probability, we have to create a table with symbol, frequency and probability in order to create binary tree. Table should be created in such a way that it is in descending order. The table for corresponding data will be: <br>
+                <div class="algo_img_2">
+                <img src="/Table_3.jpg" alt="Sorted_Table" height="280px">
+                </div>
+                <b>Step 3</b><br><br> For creating the probability tree such that the most frequent appearing symbol is assigned the small codeword which is indeed called greedy method of compression. Now for that we have to create a pseudo node containing the address of the left and right child, probability and symbol. Each pseudo node consisting left and the right child as the current minimum probabilities, and parent node as the sum of its child node. Now link this pseudo node with another pseudo node until the probability of root of the tree becomes one. <br>
+                <div class="algo_img_3">
+                <img src="/Tree_3.PNG" alt="" height="200px">
+                </div>
+                <br><b>Step 4</b><br><br> We now start assigning code words to the symbols present in the binary tree. For this, we first search the symbol in the binary tree, and traverse the tree starting from the root and ending at the leaf node where the respective symbol is stored. During the process of traversing, if we traverse through a left branch, we append a “1” to the codeword string, and if we traverse through a right branch, we append a “0” to the codeword string. We repeat this until the leaf node is reached. The final string thus obtained is the codeword for the particular symbol stored in the respective leaf node. We repeat this process for all the symbols and store the results. <br>
+                   <img src="/Tree_2.png" alt="Tree" width="100%"> <br>
+                <br><b>Step 5</b><br><br> We are finally done with the process, and after following the above steps, we will be able to encode and decode a particular form of data. If the user wishes to calculate that factor with which the data has been compressed, we may calculate the compression percentage, which is given by : <br>
+                Percentage = ((Original Size – New Size)/(Original Size))*100 <br>
+            </p>
+        </div>
+<div class="comm intro-body">
+    <h2>Commercialisation</h2>
+        •  Since data is used in everyday life, data compression is also a necessary tool <br> that needs to be implemented for efficient use of resources. Hence, this algorithm can be implemented in software/websites that allow users to compress a given image, or any data for that matter. <br>
+        •  Huffman coding is also used in transmission of fax and text messages. <br>
+        •  We may also use some other algorithms along with Huffman coding in our software/website and add options to compress data types like pdf, text, etc. <br>
+        <div class="Youtube"><h2>Youtube Video</h2></div>
+        <div class="video">
+            <iframe width="684" height="385" src="https://www.youtube.com/embed/qvolYz1cGTQ" title="Data Compression - Huffman Code | Discrete Mathematics Project | DA-IICT" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="yt"></iframe>
+        </div>
+</div>
+</main>
+</body>
+</html>
